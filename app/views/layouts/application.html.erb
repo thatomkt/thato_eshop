@@ -12,6 +12,14 @@
 <body class='<%= "#{controller_name} #{action_name}"%>'>
   
    <nav class="navbar navbar-inverse navbar-fixed-top">
+    
+    <!-- Code for search form -->
+     <%= form_tag("/products", method: "get") do %>
+        <%= label_tag(:q, "Search for:") %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search Now") %>
+     <% end %> <!-- End of Code for search form -->
+
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -24,12 +32,18 @@
         </div>
         <div  class="collapse navbar-collapse" >
           <ul class="nav navbar-nav" >
-            <li class="<%= action_name=='index' ? 'active' : nil%>">
-              <a href="/static_pages/index">Home</a></li>
+            <li class="<%= action_name=='index' ? 'active' : nil %>">
+              <%= link_to "Home", static_pages_index_path %></li>
+             <!-- <a href="static_pages_index_path">Home</a></li>-->
+             
             <li class="<%= action_name=='about' ? 'active' : nil %>">
-              <a href="/static_pages/about">About</a></li>
+              <%= link_to "About",static_pages_about_path %></li>
+             <!--  <a href="static_pages_about_path">About</a></li>-->
+             
             <li class="<%= action_name=='contact' ? 'active' : nil %>">
-              <a href="/static_pages/contact">Contact</a></li>
+              <%= link_to "Contact",static_pages_contact_path %></li>
+              <!-- <a href="static_pages_contact_path">Contact</a></li>-->
+            
           </ul>
         </div><!--/.nav-collapse -->
       </div>
