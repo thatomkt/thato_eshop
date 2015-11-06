@@ -1,7 +1,4 @@
 
-
-
-
    <div class="container-fluid">
       
 		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -18,23 +15,24 @@
 			</ol>
 
 			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox">		
+			<div class="carousel-inner" role="listbox" >		
                 
-                  <% @products.each_with_index do |product, index| %>
+              <% @products.each_with_index do |product, index| %>
 
-                       <% active_class = index == 0 ? 'active' : nil %>  
+                <% active_class = index == 0 ? 'active' : nil %>  
 
-	                   <div class="item <%= active_class %>">
-					  	
-					  	<%= image_tag product.image_url, alt: product.name, width: "100%" %>
+                 <div class="item <%= active_class %>">
+				  	
+				   <%= image_tag product.image_url, alt: product.name, width: "100%" %>
 
-					  	<div class="carousel-caption">
-					  		<h1><%= product.name %></h1>
-					  	</div>
-					  </div> 
+				  	<div class="carousel-caption">
+				  		<h1><%= product.name %></h1>
+				  	</div>
+
+				 </div> 
 
 
-                  <% end %> 
+               <% end %> 
 				  
 		    </div> <!-- inner of the carousel -->
 
