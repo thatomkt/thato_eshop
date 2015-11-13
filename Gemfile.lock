@@ -45,6 +45,7 @@ GEM
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
     builder (3.2.2)
+    cancancan (1.13.1)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -87,6 +88,8 @@ GEM
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
     pg (0.18.3-x86-mingw32)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -163,6 +166,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass
+  cancancan
   coffee-rails (~> 4.0.0)
   coffee-script-source (~> 1.8.0)
   devise
@@ -170,6 +174,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   pg
+  quiet_assets
   rails (~> 4.2.0)
   rails_12factor
   sass-rails (~> 4.0.3)

@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-  
+
+  #before_action :set_user, only: [:show, :edit, :update, :destroy]
+  #load_and authorize_resource
+
+  #authorize_resource
+  load_and_authorize_resource
 
   # GET /users
   # GET /users.json
@@ -20,6 +24,16 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    # The next statement is going to check whether the current user is allowed
+    # to "edit" the user that is saved inside the variable "@user". The variable "@user"
+    # has the result of "User.find(params[:id])" which is executed by the "set_user"
+    # (look above which says before_action :set_user)
+    # For example, if current user is user with id "1" (Thato Lion) and
+    # tries to access /users/2/edit , then params[:id] is "2" and hence
+    # @user is user with id "2" (Thato Tigger). So, method below is going to check
+    # whether Thato Lion (current user) is authorized to "edit" Thato Tigger (user
+    # with id "2" in @user)
+    # authorize! :edit, @user 
   end
 
   # POST /users
@@ -64,9 +78,9 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
+    #def set_user
+    #  @user = User.find(params[:id])
+    #end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params

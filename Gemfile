@@ -38,6 +38,7 @@ gem 'font-awesome-rails'
 # gem 'debugger', group: [:development, :test]
 group :development, :test do
  gem 'sqlite3'
+ gem 'quiet_assets'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -49,5 +50,6 @@ group :production do
 end
 
 gem 'devise'
+gem 'cancancan'
 	
 
