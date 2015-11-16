@@ -45,8 +45,12 @@
         </div>
         <div  class="collapse navbar-collapse" >
           <ul class="nav navbar-nav" >
-            <li class="<%= action_name=='index' ? 'active' : nil %>">
-              <%= link_to "Home", static_pages_index_path %></li>
+
+             <li class="<%= action_name=='landing_page' ? 'active' : nil %>">
+              <%= link_to "Home", static_pages_landing_page_path %></li>
+
+            <!-- <li class="<%= action_name=='index' ? 'active' : nil %>"> -->
+             <!-- <%= link_to "Home", static_pages_index_path %></li> -->
              <!-- <a href="static_pages_index_path">Home</a></li>-->
              
             <li class="<%= action_name=='about' ? 'active' : nil %>">
@@ -87,15 +91,19 @@
    <%= yield %>
 
   <footer>
-   <nav class="col-md-6" >
+   <nav class="col-md-3" >
      
-    <nav class="twitter" >
-      <!--<%= Time.now %>-->
-      <a href="https://twitter.com/thatomkt" class="twitter-follow-button" data-show-count="false" data-size="large" data-dnt="true">Follow @thatomkt</a>
+      <nav class="twitter" >
+        <!--<%= Time.now %>-->
+        <a href="https://twitter.com/thatomkt" class="twitter-follow-button" data-show-count="false" data-size="large" data-dnt="true">Follow @thatomkt</a>
 
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </nav> 
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        
+      </nav> 
    </nav>
+       <nav class="col-md-3">
+           <%= Time.now %>           
+       </nav>
 
    <nav class="col-md-6">
      &copy 2015 mktDevelopers
