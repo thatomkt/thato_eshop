@@ -1,14 +1,14 @@
 class ProductsController < ApplicationController
 
-  load_and_authorize_resource
+  #load_and_authorize_resource
 
   # GET /products
   # GET /products.json
 
-  #def index
-   # @products =Product.all
+ # def index
+  #  @products =Product.all
    # search_term = params[:q]
-  #end
+ # end
 
   def index   
     if params[:q]

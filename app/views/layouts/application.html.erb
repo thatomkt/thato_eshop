@@ -46,12 +46,12 @@
         <div  class="collapse navbar-collapse" >
           <ul class="nav navbar-nav" >
 
-             <li class="<%= action_name=='landing_page' ? 'active' : nil %>">
-              <%= link_to "Home", static_pages_landing_page_path %></li>
+            <li class="<%= action_name=='landing_page' ? 'active' : nil %>">
+            <%= link_to "Home", static_pages_landing_page_path %></li>
 
-            <!-- <li class="<%= action_name=='index' ? 'active' : nil %>"> -->
+           <!-- <li class="<%= action_name=='index' ? 'active' : nil %>"> -->
              <!-- <%= link_to "Home", static_pages_index_path %></li> -->
-             <!-- <a href="static_pages_index_path">Home</a></li>-->
+             <!--  <a href="static_pages_index_path">Home</a></li>-->
              
             <li class="<%= action_name=='about' ? 'active' : nil %>">
               <%= link_to "About",static_pages_about_path %></li>
@@ -60,6 +60,9 @@
             <li class="<%= action_name=='contact' ? 'active' : nil %>">
               <%= link_to "Contact",static_pages_contact_path %></li>
               <!-- <a href="static_pages_contact_path">Contact</a></li>-->
+
+            <li class="<%= action_name=='index' ? 'active' : nil %>">
+              <%= link_to "Our_Products",products_index_path %></li>
             
           </ul>
           
