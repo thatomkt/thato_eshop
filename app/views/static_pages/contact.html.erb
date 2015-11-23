@@ -2,9 +2,21 @@
 
 	<h1>Contact Us Here:</h1>
 	<%= flash[:notice] %>
+	<div class="text-center" >
+		
+           <address>
+                 <strong>mktDevelopers</strong><br>
+                 22 Glassgow road,Suite 33<br>
+                 Johannesburg,Lombardy West<br>
+                 <abbr title="Phone">P:</abbr> (078)0999891<br>
+                 <a href="mailto:#">thatomkt@gmail.com</a>
 
+           </address>
+		
+	</div>
+	<div class="container">
 	<%= form_tag("/static_pages/thank_you") do %>
-	<div class="row" id: "contact">
+	   <div class="row" id: "contact">
 	    <div class="col-md-4">
 	        <div class="form-group">
 	            <%= label_tag :name, "Name" %>
@@ -19,9 +31,12 @@
 	             <%= text_area_tag :message, nil, class: "form-control", placeholder: "Enter Message" %>
 	        </div>
 	    </div>
-	</div>
+	   </div>
+
 	<%= submit_tag "Send" %>
 	<% end %>
+    </div>
+
 
 
 
