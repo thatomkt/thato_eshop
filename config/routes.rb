@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+
+  resources :products do
+    resources :comments
+  end
   resources :users
-  resources :products, :users
 
   get 'static_pages/about'
 
@@ -68,9 +71,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  resources :products do
-    resources :comments
-  end
-  resources :users
+
   
 end
