@@ -13,15 +13,20 @@ class ProductsController < ApplicationController
   def index   
     if params[:q]
       search_term = params[:q]
-      @products = Product.where("name LIKE ?", "%#{search_term}%")# return our filtered list here
+      @products = Product.where("name LIKE ?", "%#{search_term}%")
+      .order(:id).paginate(:page => params[:page], :per_page => 5)# return our filtered list here
+
     else
-      @products = Product.all
+      @products = Product.order(:id).paginate(:page => params[:page], :per_page => 5)
     end
   end
 
-  def index
-    @products = Product.order(:id)
-  end
+  #def index
+    #@products = Product.order(:id)
+  #end
+
+  
+
 
   # GET /products/1
   # GET /products/1.json
@@ -86,5 +91,5 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:name, :description, :image_url, :colour)
     end
-   
+    
 end
