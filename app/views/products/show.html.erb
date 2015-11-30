@@ -39,6 +39,8 @@
      
      <% end %>
      <%= will_paginate @comments %>
+     <p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"> </div> </p>
+ 
   </div>
   
  
