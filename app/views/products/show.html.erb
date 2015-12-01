@@ -1,4 +1,4 @@
-<div class="container-fluid view">
+<div class="container-fluid view" >
 
   <p id="notice"><%= notice %></p>
   <p>
@@ -38,7 +38,7 @@
           </div>
      
      <% end %>
-     <%= will_paginate @comments %>
+     <%= will_paginate @comments, renderer: BootstrapPagination::Rails %>
  
   </div>
   

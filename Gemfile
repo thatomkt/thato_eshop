@@ -6,7 +6,7 @@ ruby '2.1.5'
 gem 'rails', '~>4.2.0'
 
 gem 'will_paginate','~> 3.0.6'
-
+gem 'will_paginate-bootstrap', '~> 1.0.0'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass'
 gem 'sass-rails', '~> 4.0.3'
