@@ -4,9 +4,10 @@ ruby '2.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~>4.2.0'
-
 gem 'will_paginate','~> 3.0.6'
 gem 'will_paginate-bootstrap', '~> 1.0.0'
+
+
 # Use SCSS for stylesheets
 gem 'bootstrap-sass'
 gem 'sass-rails', '~> 4.0.3'
@@ -42,6 +43,7 @@ gem 'font-awesome-rails'
 group :development, :test do
  gem 'sqlite3'
  gem 'quiet_assets'
+ gem 'rspec-rails', '~> 3.4.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
