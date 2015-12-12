@@ -1,0 +1,50 @@
+                   Prefix Verb   URI Pattern                                       Controller#Action
+         new_user_session GET    /login(.:format)                                  devise/sessions#new
+             user_session POST   /login(.:format)                                  devise/sessions#create
+     destroy_user_session DELETE /logout(.:format)                                 devise/sessions#destroy
+            user_password POST   /password(.:format)                               devise/passwords#create
+        new_user_password GET    /password/new(.:format)                           devise/passwords#new
+       edit_user_password GET    /password/edit(.:format)                          devise/passwords#edit
+                          PATCH  /password(.:format)                               devise/passwords#update
+                          PUT    /password(.:format)                               devise/passwords#update
+ cancel_user_registration GET    /cancel(.:format)                                 devise/registrations#cancel
+        user_registration POST   /                                                 devise/registrations#create
+    new_user_registration GET    /sign_up(.:format)                                devise/registrations#new
+   edit_user_registration GET    /edit(.:format)                                   devise/registrations#edit
+                          PATCH  /                                                 devise/registrations#update
+                          PUT    /                                                 devise/registrations#update
+                          DELETE /                                                 devise/registrations#destroy
+         product_comments GET    /products/:product_id/comments(.:format)          comments#index
+                          POST   /products/:product_id/comments(.:format)          comments#create
+      new_product_comment GET    /products/:product_id/comments/new(.:format)      comments#new
+     edit_product_comment GET    /products/:product_id/comments/:id/edit(.:format) comments#edit
+          product_comment GET    /products/:product_id/comments/:id(.:format)      comments#show
+                          PATCH  /products/:product_id/comments/:id(.:format)      comments#update
+                          PUT    /products/:product_id/comments/:id(.:format)      comments#update
+                          DELETE /products/:product_id/comments/:id(.:format)      comments#destroy
+                 products GET    /products(.:format)                               products#index
+                          POST   /products(.:format)                               products#create
+              new_product GET    /products/new(.:format)                           products#new
+             edit_product GET    /products/:id/edit(.:format)                      products#edit
+                  product GET    /products/:id(.:format)                           products#show
+                          PATCH  /products/:id(.:format)                           products#update
+                          PUT    /products/:id(.:format)                           products#update
+                          DELETE /products/:id(.:format)                           products#destroy
+                    users GET    /users(.:format)                                  users#index
+                          POST   /users(.:format)                                  users#create
+                 new_user GET    /users/new(.:format)                              users#new
+                edit_user GET    /users/:id/edit(.:format)                         users#edit
+                     user GET    /users/:id(.:format)                              users#show
+                          PATCH  /users/:id(.:format)                              users#update
+                          PUT    /users/:id(.:format)                              users#update
+                          DELETE /users/:id(.:format)                              users#destroy
+       static_pages_about GET    /static_pages/about(.:format)                     static_pages#about
+     static_pages_contact GET    /static_pages/contact(.:format)                   static_pages#contact
+       static_pages_index GET    /static_pages/index(.:format)                     static_pages#index
+static_pages_landing_page GET    /static_pages/landing_page(.:format)              static_pages#landing_page
+   static_pages_thank_you POST   /static_pages/thank_you(.:format)                 static_pages#thank_you
+                     root GET    /                                                 static_pages#landing_page
+                   orders GET    /orders(.:format)                                 orders#index
+                          POST   /orders(.:format)                                 orders#create
+                    order GET    /orders/:id(.:format)                             orders#show
+                          DELETE /orders/:id(.:format)                             orders#destroy
