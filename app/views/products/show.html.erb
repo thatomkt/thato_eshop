@@ -20,7 +20,22 @@
      <%= @product.colour %>
   </p>
   
+  
   <p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div> </p>
+  
+  <form action="" method="POST">
+    <script
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="pk_test_zbas1IK5N7gb2FxMHcIc6M5y"
+      data-image="/img/documentation/checkout/marketplace.png"
+      data-name="Demo Site"
+      data-description="2 widgets"
+      data-currency="cad"
+      data-amount="2000"
+      data-locale="auto">
+    </script>
+  </form>
+
   <%= link_to 'Edit', edit_product_path(@product) %> |
   <%= link_to 'Back', products_path %>
 
