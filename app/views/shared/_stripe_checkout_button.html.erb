@@ -1,9 +1,9 @@
 <script
  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
  data-key="pk_test_zbas1IK5N7gb2FxMHcIc6M5y"
- data-amount="2000"
+ data-amount="<%= (product.price * 100).to_i %>"
  data-name="Product"
- data-description="2 widgets ($20.00)"
- data-image="/square-image.png"
+ data-description="<%= product.description %> (<%= number_to_currency(product.price) %>)"
+ data-image="<%= image_url(product.image_url) %>"
 
 </script>

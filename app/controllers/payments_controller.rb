@@ -2,18 +2,19 @@ class PaymentsController < ApplicationController
 
   def create
     token = params[:stripeToken]
-    product = Product.find(params[:product_id])
+    @product = Product.find(params[:product_id])
+    @user = current_user # +current_user+ is a Devise helper method
     # Create the charge on Stripe's servers- this will charge the user's card
     begin
       charge = Stripe::Charge.create(
-        :amount => 2000, #amount in cents, again
+        :amount => (@product.price * 100).to_i, #amount in cents, again
         :currency => "usd",
         :source => token,
         :description => params[:stripeEmail]
         )
       flash[:success]= "Payment processed succefully"
       if charge.paid
-       Order.create()
+       Order.create(product_id: @product.id, user_id: @user.id, total: @product.price)
       end
     rescue Stripe::CardError => e
       # The card has been declined
@@ -22,7 +23,7 @@ class PaymentsController < ApplicationController
       flash[:error] = "Unfortunately, there was an error processing your payment: #{err[:message]}"
 
     end
-     redirect_to product_path(product)
+    redirect_to product_url(@product)
   end
 
 end
