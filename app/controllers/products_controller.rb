@@ -77,6 +77,7 @@ class ProductsController < ApplicationController
   private
     def set_product
       @product = Product.find(params[:id])
+      Rails.logger.debug "I have just loaded the product with name : #{@product.name}"
     end  
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
