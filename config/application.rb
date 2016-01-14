@@ -13,8 +13,11 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Nameofapp
+module NameofApp
   class Application < Rails::Application
+    config.force_ssl = false
+    config.filter_parameters << :password
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -27,4 +30,16 @@ module Nameofapp
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
   end
+
+ class Session < ActiveRecord::Base
+    def self.sweep(time = 1.hour)
+      if time.is_a?(String)
+        time = time.split.inject { |count, unit| count.to_i.send(unit) }
+      end
+
+      delete_all "updated_at < '#{time.ago.to_s(:db)}' OR
+        created_at < '#{2.days.ago.to_s(:db)}'"
+    end
+  end
+
 end

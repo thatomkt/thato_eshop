@@ -1,6 +1,10 @@
 <div class="container-fluid view" >
 
-  <p id="notice"><%= notice %></p>
+
+
+<p id="notice"><%= notice %></p>
+ 
+
   <p>
     <strong>Name:</strong>
     <%= @product.name %>
@@ -38,7 +42,9 @@
   <div class="product-reviews">
      <% @comments.each do |comment| %>
           <div class="row">
+
              <hr>
+               
              <p>
                 <%= comment.user.first_name %> <small><em><%= "#{time_ago_in_words(comment.created_at)} ago" %></em></small>
                 <% if signed_in? && current_user.admin? %>
@@ -52,6 +58,8 @@
      
      <% end %>
      <%= will_paginate @comments, renderer: BootstrapPagination::Rails %>
+
+ 
  
   </div>
 </div>
