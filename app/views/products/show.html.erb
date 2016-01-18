@@ -1,49 +1,53 @@
 <div class="container-fluid view" >
 
   <p id="notice"><%= notice %></p>
-       
-        <p>
-          <strong>Name:</strong>
-          <%= @product.name %>
-        </p>
 
-        <p>
-          <strong>Description:</strong>
-          <%= @product.description %>
-        </p>
+  <div class="col-md-8">
+     <%= image_tag(@product.image_url, width: "350", class: "img-zoom", data_zoom_image: @product.image_url) %>
+  </div>  
 
-        <p>
-          <strong>Image url:</strong>
-          <%= image_tag @product.image_url,class: "img-responsive" %>
-        </p>
-        <p>
-           <strong>Colour:</strong>
-           <%= @product.colour %>
-        </p>
-        <p>
-           <strong>Price :</strong>
-           <%= @product.price  %>
-        </p>
+    <div class="col-md-4">
+          <p>
+            <h2><%= @product.name %></h2>
+          </p>
 
-        
-        <p>
-          Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div> 
-        </p>
-        
-        <%= link_to 'Edit', edit_product_path(@product) %> 
-        <%= link_to 'Back', products_path %>
+          <p>          
+            <%= @product.description %>
+          </p>
+
+          <p>
+             <strong>Colour:</strong>
+             <%= @product.colour %>
+          </p>
+          <p>
+             <strong>Price :</strong>
+             <%= @product.price  %>
+          </p>
+
+          
+          <p>
+            Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div>
+          </p>
+
+           
+          
+          <%= link_to 'Edit', edit_product_path(@product) %> 
+          <%= link_to 'Back', products_path %>
+
+    </div>
 
         <%= render partial: "new_comment" %>
+      
+       
 
-        
     <div class="product-reviews">
        <% @comments.each do |comment| %>
-          
-        <%= form_tag "/payments/create" do %>
-         <%= hidden_field_tag :product_id, @product.id %>
-         <%= render partial: "shared/stripe_checkout_button", locals: {product: @product} %>
-        <% end %>
 
+       <%= form_tag "/payments/create" do %>
+            <%= hidden_field_tag :product_id, @product.id %>
+            <%= render partial: "shared/stripe_checkout_button", locals: {product: @product} %>
+           <% end %>
+            
           <div class="row">
             <hr>             
               <p>
