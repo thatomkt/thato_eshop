@@ -63,4 +63,4 @@ gem 'cancancan'
 gem 'stripe'
 gem 'byebug', '~> 8.2.1'
 gem 'brakeman', '~> 3.1.4'
-
+gem 'angularjs-rails'
