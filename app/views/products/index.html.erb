@@ -1,27 +1,30 @@
 
 <div class="container-fluid">
   
+    <%# cache(cache_key_for_products) do %>
+     <%#= render @products %>
+    <%# end %>
+  
+  
   <div class="row">
     <h1>All Our products</h1>
   </div>
-   
-  <div class="row">
-   
-    <div class="col-md-3">
-      <% @products.each do |product| %>     
-      <p><%= product.name %></p>
-      <p><%= product.description %></p>
-      <p><%= product.colour %></p>
-      <p><%= product.image_url %></p>
-      <p><%= link_to 'Show', product %>
-        <%= link_to 'Edit', edit_product_path(product) %>
-        <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></p>  
-            
-      <% end %>
-    
-    </div>  
-   </div>
-   
+
+      
+
+      <div class="row">    
+        <div class="col-md-3">
+          <% @products.each do |product| %>     
+            <p><%= product.name %></p>
+            <p><%= product.description %></p>
+            <p><%= product.colour %></p>
+            <p><%= product.image_url %></p>
+            <p><%= link_to 'Show', product %>
+              <%= link_to 'Edit', edit_product_path(product) %>
+              <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></p>            
+          <% end %> 
+        </div>  
+      </div>  
 </div>
 
 
