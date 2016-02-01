@@ -17,6 +17,7 @@ module NameofApp
   class Application < Rails::Application
     config.force_ssl = false
     config.filter_parameters << :password
+    config.cache_store = :redis_store, 'redis://localhost:6379/0/cache'
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
